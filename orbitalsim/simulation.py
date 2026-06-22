@@ -5,7 +5,7 @@ def __init__(self, integrator, bodies):
     self.integrator = integrator
     self.bodies = bodies
 
-def CalculateAccelerations(bodies, positions):
+def calculate_accelerations(bodies, positions):
     accelerations = np.zeros_like(positions)
 
     for i in range(len(bodies)):
@@ -25,43 +25,42 @@ def CalculateAccelerations(bodies, positions):
 
 class NBodySimulation:
 
-
     def __init__(self, integrator, bodies: list[CelestialBody]):
         self.integrator = integrator
         self.bodies = bodies
 
-    def Simulator(self, steps):
+    def simulator(self, steps):
 
         positions = np.array([b.position.copy() for b in self.bodies], dtype = float)
         velocities = np.array([b.velocity.copy() for b in self.bodies], dtype = float)
 
         trajectories = [positions.copy()] # for visuals later
 
-        energy = MechanicalEnergyCalculator(self.bodies, positions, velocities)
-        maximumEnergy = energy
-        minimumEnergy = energy
+        energy = mechanical_energy_calculator(self.bodies, positions, velocities)
+        maximum_energy = energy
+        minimum_energy = energy
 
-        linMomentum, angMomentum = MomentumCalculator(self.bodies, positions, velocities)
-        maximumLinearMomentum = np.linalg.norm(linMomentum)
-        minimumLinearMomentum = np.linalg.norm(linMomentum)
-        maximumAngularMomentum = np.linalg.norm(angMomentum)
-        minimumAngularMomentum = np.linalg.norm(angMomentum)
+        lin_momentum, ang_momentum = momentum_calculator(self.bodies, positions, velocities)
+        maximum_linear_momentum = np.linalg.norm(lin_momentum)
+        minimum_linear_momentum = np.linalg.norm(lin_momentum)
+        maximum_angular_momentum = np.linalg.norm(ang_momentum)
+        minimum_angular_momentum = np.linalg.norm(ang_momentum)
 
 
         # primary loop
         for step in range(steps):
 
-            accelerations = CalculateAccelerations(self.bodies, positions)
+            accelerations = calculate_accelerations(self.bodies, positions)
 
-            self.integrator.Step(self.bodies, positions, velocities, accelerations)
+            self.integrator.step(self.bodies, positions, velocities, accelerations)
 
             trajectories.append(positions.copy())
 
-            maximumEnergy, minimumEnergy, maximumLinearMomentum, minimumLinearMomentum, maximumAngularMomentum, minimumAngularMomentum = UpdateExtrema(self.bodies, positions, velocities, maximumEnergy, minimumEnergy, maximumLinearMomentum, minimumLinearMomentum, maximumAngularMomentum, minimumAngularMomentum)
+            maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum = update_extrema(self.bodies, positions, velocities, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum)
 
 
         for i, body in enumerate(self.bodies):
                 body.positions = positions[i]
                 body.velocities = velocities[i]
 
-        return np.array(trajectories), maximumEnergy, minimumEnergy, maximumLinearMomentum, minimumLinearMomentum, maximumAngularMomentum, minimumAngularMomentum
+        return np.array(trajectories), maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum
