@@ -22,7 +22,6 @@ def calculate_accelerations(bodies, positions):
 
     return accelerations
 
-
 class NBodySimulation:
 
     def __init__(self, integrator, bodies: list[CelestialBody]):
@@ -50,9 +49,7 @@ class NBodySimulation:
         # primary loop
         for step in range(steps):
 
-            accelerations = calculate_accelerations(self.bodies, positions)
-
-            self.integrator.step(self.bodies, positions, velocities, accelerations)
+            self.integrator.step(self.bodies, positions, velocities)
 
             trajectories.append(positions.copy())
 
