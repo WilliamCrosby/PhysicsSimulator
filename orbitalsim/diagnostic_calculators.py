@@ -1,6 +1,7 @@
 import numpy as np
 from orbitalsim.celestial_body import CelestialBody
 from orbitalsim.universal_constants import UniversalConstants
+from astroquery.jplhorizons import Horizons
 
 
 def mechanical_energy_calculator(bodies:list[CelestialBody], positions, velocities):
@@ -46,6 +47,10 @@ def momentum_calculator(bodies:list[CelestialBody], positions, velocities):
         total_angular_momentum += np.cross(positions[i], p)
 
     return total_linear_momentum, total_angular_momentum
+
+
+# def position_comparison(positions, timestep: int): WIP
+
 
 
 def update_extrema(bodies, positions, velocities, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum):

@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1871bf2-3936-466f-a6c8-8681c9209e42" name="Changes" comment="Refactor variable and method names to meet Python conventions.">
-      <change afterPath="$PROJECT_DIR$/orbitalsim/integrators/forward_euler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orbitalsim/integrators/velocity_verlet.py" afterDir="false" />
+    <list default="true" id="a1871bf2-3936-466f-a6c8-8681c9209e42" name="Changes" comment="Add forward Euler and Velocity Verlet integrators">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/universal_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/universal_constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/celestial_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/celestial_body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/diagnostic_calculators.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/diagnostic_calculators.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,13 +103,22 @@
       <option name="project" value="LOCAL" />
       <updated>1782145018329</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add forward Euler and Velocity Verlet integrators">
+      <option name="closed" value="true" />
+      <created>1783268114276</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1783268114276</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add basic Euler integration method with matplotlib visualization" />
     <MESSAGE value="Add momentum and energy trackers. Restructure project to split code between files rather than all within Jupyter Notebook." />
     <MESSAGE value="Refactor variable and method names to meet Python conventions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor variable and method names to meet Python conventions." />
+    <MESSAGE value="Add forward Euler and Velocity Verlet integrators" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add forward Euler and Velocity Verlet integrators" />
   </component>
 </project>
