@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1871bf2-3936-466f-a6c8-8681c9209e42" name="Changes" comment="Add forward Euler and Velocity Verlet integrators">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/celestial_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/celestial_body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orbitalsim/diagnostic_calculators.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/diagnostic_calculators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/forward_euler.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/forward_euler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/runge_kutta_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/runge_kutta_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/symplectic_euler.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/symplectic_euler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/velocity_verlet.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/velocity_verlet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/simulation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,14 +35,73 @@
     &quot;assignee&quot;: &quot;WilliamCrosby&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/WilliamCrosby/PhysicsSimulator.git&quot;,
-    &quot;accountId&quot;: &quot;f0cc0395-ebc8-480f-bca0-824401851d0a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/WilliamCrosby/PhysicsSimulator.git",
+    "accountId": "5891f114-e3ee-4ade-b620-2e8bc7ba4fc4"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="3.621985070669784E-197" />
+      <entry key="S60" value="8.51083809040648E-99" />
+      <entry key="M2" value="1.304659475293872E-49" />
+      <entry key="M5" value="4.2467562326804006E-20" />
+      <entry key="M10" value="3.3344809580306914E-10" />
+      <entry key="M15" value="8.554463172968361E-7" />
+      <entry key="M30" value="0.0037567662067526627" />
+      <entry key="H1" value="0.5266864600365025" />
+      <entry key="H2" value="8.957899811814501" />
+      <entry key="H4" value="40.747627809201454" />
+      <entry key="D1" value="179.01052869641006" />
+      <entry key="W1" value="245.10292597937212" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0" />
+      <entry key="M10" value="1.0000000000026927" />
+      <entry key="M15" value="1.000000019566077" />
+      <entry key="M30" value="1.0001710311770413" />
+      <entry key="H1" value="1.0243097373798933" />
+      <entry key="H2" value="1.3590436781555235" />
+      <entry key="H4" value="2.5064733438105513" />
+      <entry key="D1" value="7.715278458830813" />
+      <entry key="W1" value="10.418832696956786" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="2.523497677929781E-8" />
+      <entry key="MS500" value="0.030227385300435367" />
+      <entry key="S2" value="0.416965521912482" />
+      <entry key="S5" value="0.7047580710132398" />
+      <entry key="S10" value="0.8394987022105751" />
+      <entry key="S30" value="0.9433510627158861" />
+      <entry key="S60" value="0.9712626126418571" />
+      <entry key="M2" value="0.9855265661776231" />
+      <entry key="M5" value="0.9941852929503883" />
+      <entry key="M10" value="0.9970884081266711" />
+      <entry key="M15" value="0.9980588701906148" />
+      <entry key="M30" value="1.0029555552153102" />
+      <entry key="H1" value="1.550436426655604" />
+      <entry key="H2" value="10.316000529713104" />
+      <entry key="H4" value="43.25235506947177" />
+      <entry key="D1" value="186.7247061979006" />
+      <entry key="W1" value="255.52155390182367" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -48,15 +111,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.diagnostic_calculators.executor": "Run",
+    "Python.simulation.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator\notebooks" />
@@ -67,7 +143,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-e0ed3721d81e-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.159" />
+        <option value="bundled-python-sdk-50341a9f1f9c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.26222.68" />
       </set>
     </attachedChunks>
   </component>
@@ -78,6 +154,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1780780055895</updated>
+      <workItem from="1784556956646" duration="13743000" />
     </task>
     <task id="LOCAL-00001" summary="Add basic Euler integration method with matplotlib visualization">
       <option name="closed" value="true" />
@@ -114,11 +191,18 @@
     <option name="localTasksCounter" value="5" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add basic Euler integration method with matplotlib visualization" />
     <MESSAGE value="Add momentum and energy trackers. Restructure project to split code between files rather than all within Jupyter Notebook." />
     <MESSAGE value="Refactor variable and method names to meet Python conventions." />
     <MESSAGE value="Add forward Euler and Velocity Verlet integrators" />
     <option name="LAST_COMMIT_MESSAGE" value="Add forward Euler and Velocity Verlet integrators" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PhysicsSimulator$diagnostic_calculators.coverage" NAME="diagnostic_calculators Coverage Results" MODIFIED="1784656509104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/orbitalsim" />
+    <SUITE FILE_PATH="coverage/PhysicsSimulator$simulation.coverage" NAME="simulation Coverage Results" MODIFIED="1784656503484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/orbitalsim" />
   </component>
 </project>

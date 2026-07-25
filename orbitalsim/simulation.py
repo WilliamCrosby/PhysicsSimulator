@@ -1,9 +1,8 @@
-from orbitalsim.diagnostic_calculators import *
-from orbitalsim.universal_constants import *
+import numpy as np
 
-def __init__(self, integrator, bodies):
-    self.integrator = integrator
-    self.bodies = bodies
+from orbitalsim.calculations import mechanical_energy_calculator, momentum_calculator, update_extrema
+from orbitalsim.celestial_body import CelestialBody
+from orbitalsim.universal_constants import UniversalConstants
 
 def calculate_accelerations(bodies, positions):
     accelerations = np.zeros_like(positions)
@@ -28,7 +27,7 @@ class NBodySimulation:
         self.integrator = integrator
         self.bodies = bodies
 
-    def simulator(self, steps):
+    def simulator(self, steps, dt):
 
         positions = np.array([b.position.copy() for b in self.bodies], dtype = float)
         velocities = np.array([b.velocity.copy() for b in self.bodies], dtype = float)
@@ -49,7 +48,7 @@ class NBodySimulation:
         # primary loop
         for step in range(steps):
 
-            self.integrator.step(self.bodies, positions, velocities)
+            self.integrator.step(self.bodies, positions, velocities, dt)
 
             trajectories.append(positions.copy())
 
@@ -57,7 +56,7 @@ class NBodySimulation:
 
 
         for i, body in enumerate(self.bodies):
-                body.positions = positions[i]
-                body.velocities = velocities[i]
+                body.position = positions[i]
+                body.velocity = velocities[i]
 
-        return np.array(trajectories), maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum
+        return np.array(trajectories), positions, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum

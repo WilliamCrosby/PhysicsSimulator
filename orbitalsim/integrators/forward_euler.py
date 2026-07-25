@@ -4,12 +4,12 @@ from orbitalsim.simulation import calculate_accelerations
 class ForwardEuler:
 
     @staticmethod
-    def step(bodies, positions, velocities):
+    def step(bodies, positions, velocities, dt):
 
         accelerations = calculate_accelerations(bodies, positions)
 
-        positions += UniversalConstants.dt * velocities
+        positions += dt * velocities
 
-        velocities += UniversalConstants.dt * accelerations
+        velocities += dt * accelerations
 
         return positions, velocities

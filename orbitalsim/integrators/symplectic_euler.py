@@ -4,8 +4,8 @@ from orbitalsim.universal_constants import UniversalConstants
 class SymplecticEulerIntegrator:
 
     @staticmethod
-    def step(bodies, positions, velocities):
+    def step(bodies, positions, velocities, dt):
         accelerations = calculate_accelerations(bodies, positions)
-        velocities += accelerations * UniversalConstants.dt
-        positions += velocities * UniversalConstants.dt
+        velocities += accelerations * dt
+        positions += velocities * dt
         return positions, velocities

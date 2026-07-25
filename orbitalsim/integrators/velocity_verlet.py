@@ -4,14 +4,14 @@ from orbitalsim.simulation import  calculate_accelerations
 class VelocityVerletIntegrator:
 
     @staticmethod
-    def step(bodies, positions, velocities):
+    def step(bodies, positions, velocities, dt):
 
         accelerations = calculate_accelerations(bodies, positions)
 
-        positions += velocities * UniversalConstants.dt + 0.5 * accelerations * UniversalConstants.dt**2
+        positions += velocities * dt + 0.5 * accelerations * dt**2
 
         new_accelerations = calculate_accelerations(bodies, positions)
 
-        velocities += 0.5 * (accelerations + new_accelerations) * UniversalConstants.dt
+        velocities += 0.5 * (accelerations + new_accelerations) * dt
 
         return positions, velocities
