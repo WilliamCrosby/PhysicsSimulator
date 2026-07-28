@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1871bf2-3936-466f-a6c8-8681c9209e42" name="Changes" comment="Add forward Euler and Velocity Verlet integrators">
+    <list default="true" id="a1871bf2-3936-466f-a6c8-8681c9209e42" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/orbitalsim/set_positions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PhysicsSimulator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PhysicsSimulator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/celestial_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/celestial_body.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orbitalsim/diagnostic_calculators.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/diagnostic_calculators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/forward_euler.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/forward_euler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/runge_kutta_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/runge_kutta_4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/symplectic_euler.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/symplectic_euler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/velocity_verlet.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/velocity_verlet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/simulation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/planets.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/planets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/universal_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/universal_constants.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +40,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/WilliamCrosby/PhysicsSimulator.git",
-    "accountId": "5891f114-e3ee-4ade-b620-2e8bc7ba4fc4"
+    "accountId": "f0cc0395-ebc8-480f-bca0-824401851d0a"
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
@@ -114,6 +116,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.celestial_body.executor": "Run",
     "Python.diagnostic_calculators.executor": "Run",
     "Python.simulation.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -135,15 +138,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator\notebooks" />
       <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator" />
+      <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator\notebooks" />
       <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator\orbitalsim" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50341a9f1f9c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.26222.68" />
+        <option value="bundled-python-sdk-e0ed3721d81e-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.159" />
       </set>
     </attachedChunks>
   </component>
