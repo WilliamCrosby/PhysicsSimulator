@@ -4,20 +4,20 @@ from orbitalsim.calculations import mechanical_energy_calculator, momentum_calcu
 from orbitalsim.celestial_body import CelestialBody
 from orbitalsim.universal_constants import UniversalConstants
 
-def calculate_accelerations(bodies, positions):
+def calculate_accelerations(positions, masses):
     accelerations = np.zeros_like(positions)
+    n = len(masses)
+    G = UniversalConstants.G
 
-    for i in range(len(bodies)):
-        for j in range(len(bodies)):
+    for i in range(n):
+        for j in range(n):
             if i == j:
                 continue
 
             r = positions[j] - positions[i]
-
             dist_sq = np.dot(r, r)
-            dist = np.sqrt(dist_sq)
 
-            accelerations[i] += (UniversalConstants.G * bodies[j].mass * r / dist ** 3)
+            accelerations[i] += (G * masses[j] * r / (dist_sq * np.sqrt(dist_sq)))
 
     return accelerations
 
@@ -31,8 +31,10 @@ class NBodySimulation:
 
         positions = np.array([b.position.copy() for b in self.bodies], dtype = float)
         velocities = np.array([b.velocity.copy() for b in self.bodies], dtype = float)
+        masses = [body.mass for body in self.bodies]
 
-        trajectories = [positions.copy()] # for visuals later
+        trajectories = np.empty((steps + 1, len(self.bodies), positions.shape[1]), dtype = float) # for visuals later
+        trajectories[0] = positions
 
         energy = mechanical_energy_calculator(self.bodies, positions, velocities)
         maximum_energy = energy
@@ -48,9 +50,9 @@ class NBodySimulation:
         # primary loop
         for step in range(steps):
 
-            self.integrator.step(self.bodies, positions, velocities, dt)
+            self.integrator.step(positions, velocities, masses, dt)
 
-            trajectories.append(positions.copy())
+            trajectories[step + 1] = positions.copy()
 
             maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum = update_extrema(self.bodies, positions, velocities, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum)
 
@@ -59,4 +61,4 @@ class NBodySimulation:
                 body.position = positions[i]
                 body.velocity = velocities[i]
 
-        return np.array(trajectories), positions, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum
+        return trajectories, positions, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum
