@@ -9,6 +9,10 @@ class Planets:
     def circular_velocities(r: float):
         return np.sqrt(UniversalConstants.G * 1.989e30 / r)
 
+    @staticmethod
+    def true_circular_velocities(r: float, m1: float, m2: float):
+        return np.sqrt(UniversalConstants.G * (m1 + m2) / r)
+
     mercury = CelestialBody(
         3.301e23,
         np.array([0.39 * UniversalConstants.AU, 0.0, 0.0]),
@@ -28,7 +32,7 @@ class Planets:
     earth = CelestialBody(
         5.972e24,
         np.array([UniversalConstants.AU, 0.0, 0.0]),
-        np.array([0.0, circular_velocities(UniversalConstants.AU), 0.0]),
+        np.array([0.0, true_circular_velocities(UniversalConstants.AU, 5.972e24, 1.32712440018e20 / UniversalConstants.G), 0.0]),
         name="Earth",
         horizons_id = '399', barycenter_id = '3'
     )

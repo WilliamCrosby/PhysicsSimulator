@@ -36,6 +36,9 @@ class NBodySimulation:
         trajectories = np.empty((steps + 1, len(self.bodies), positions.shape[1]), dtype = float) # for visuals later
         trajectories[0] = positions
 
+        saved_velocities = np.empty((steps + 1, len(self.bodies), velocities.shape[1]), dtype = float)
+        saved_velocities[0] = velocities
+
         energy = mechanical_energy_calculator(self.bodies, positions, velocities)
         maximum_energy = energy
         minimum_energy = energy
@@ -53,6 +56,7 @@ class NBodySimulation:
             self.integrator.step(positions, velocities, masses, dt)
 
             trajectories[step + 1] = positions.copy()
+            saved_velocities[step + 1] = velocities.copy()
 
             maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum = update_extrema(self.bodies, positions, velocities, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum)
 
@@ -61,4 +65,4 @@ class NBodySimulation:
                 body.position = positions[i]
                 body.velocity = velocities[i]
 
-        return trajectories, positions, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum
+        return trajectories, saved_velocities, positions, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum
