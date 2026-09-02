@@ -29,21 +29,24 @@ class NBodySimulation:
 
     def simulator(self, steps, dt):
 
-        positions = np.array([b.position.copy() for b in self.bodies], dtype = float)
-        velocities = np.array([b.velocity.copy() for b in self.bodies], dtype = float)
-        masses = [body.mass for body in self.bodies]
+        bodies = self.bodies
+        integrator = self.integrator
 
-        trajectories = np.empty((steps + 1, len(self.bodies), positions.shape[1]), dtype = float) # for visuals later
+        positions = np.array([b.position.copy() for b in bodies], dtype = float)
+        velocities = np.array([b.velocity.copy() for b in bodies], dtype = float)
+        masses = [body.mass for body in bodies]
+
+        trajectories = np.empty((steps + 1, len(bodies), positions.shape[1]), dtype = float) # for visuals later
         trajectories[0] = positions
 
-        saved_velocities = np.empty((steps + 1, len(self.bodies), velocities.shape[1]), dtype = float)
+        saved_velocities = np.empty((steps + 1, len(bodies), velocities.shape[1]), dtype = float)
         saved_velocities[0] = velocities
 
-        energy = mechanical_energy_calculator(self.bodies, positions, velocities)
+        energy = mechanical_energy_calculator(bodies, positions, velocities)
         maximum_energy = energy
         minimum_energy = energy
 
-        lin_momentum, ang_momentum = momentum_calculator(self.bodies, positions, velocities)
+        lin_momentum, ang_momentum = momentum_calculator(bodies, positions, velocities)
         maximum_linear_momentum = np.linalg.norm(lin_momentum)
         minimum_linear_momentum = np.linalg.norm(lin_momentum)
         maximum_angular_momentum = np.linalg.norm(ang_momentum)
@@ -53,15 +56,15 @@ class NBodySimulation:
         # primary loop
         for step in range(steps):
 
-            self.integrator.step(positions, velocities, masses, dt)
+            integrator.step(positions, velocities, masses, dt)
 
             trajectories[step + 1] = positions.copy()
             saved_velocities[step + 1] = velocities.copy()
 
-            maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum = update_extrema(self.bodies, positions, velocities, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum)
+            maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum = update_extrema(bodies, positions, velocities, maximum_energy, minimum_energy, maximum_linear_momentum, minimum_linear_momentum, maximum_angular_momentum, minimum_angular_momentum)
 
 
-        for i, body in enumerate(self.bodies):
+        for i, body in enumerate(bodies):
                 body.position = positions[i]
                 body.velocity = velocities[i]
 
