@@ -44,6 +44,7 @@ def horizon_data_position_comparison(bodies, start_time, steps, integrator, dt):
         if body.barycenter_id is not None:
             _, gm = sp.bodvcd(int(body.barycenter_id), "GM", 1)
             gm_si = gm[0] * 1e9
+            body.GM = gm_si
             body.mass = gm_si / UniversalConstants.G
 
     sim = NBodySimulation(integrator, copy.deepcopy(bodies_copy))

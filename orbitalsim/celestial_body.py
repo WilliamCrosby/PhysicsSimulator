@@ -1,6 +1,7 @@
 class CelestialBody:
 
-    def __init__(self, mass, position, velocity, name, horizons_id=None, barycenter_id=None):
+    def __init__(self, GM, mass, position, velocity, name, horizons_id=None, barycenter_id=None):
+        self.GM = GM
         self.mass = mass
         self.position = position
         self.velocity = velocity

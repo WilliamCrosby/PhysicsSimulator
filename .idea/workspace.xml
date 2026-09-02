@@ -7,6 +7,14 @@
     <list default="true" id="a1871bf2-3936-466f-a6c8-8681c9209e42" name="Changes" comment="Add time cost analysis to two-body system analysis">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/calculations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/celestial_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/celestial_body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/forward_euler.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/forward_euler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/runge_kutta_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/runge_kutta_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/symplectic_euler.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/symplectic_euler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/velocity_verlet.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/velocity_verlet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/yoshida_4th_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/yoshida_4th_order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/planets.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/planets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orbitalsim/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/simulation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -227,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788311220459</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add time cost analysis to two-body system analysis">
+      <option name="closed" value="true" />
+      <created>1788311302494</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1788311302494</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

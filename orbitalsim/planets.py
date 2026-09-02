@@ -14,6 +14,7 @@ class Planets:
         return np.sqrt(UniversalConstants.G * (m1 + m2) / r)
 
     mercury = CelestialBody(
+        22031.868551,
         3.301e23,
         np.array([0.39 * UniversalConstants.AU, 0.0, 0.0]),
         np.array([0.0, circular_velocities(0.39 * UniversalConstants.AU), 0.0]),
@@ -22,6 +23,7 @@ class Planets:
     )
 
     venus = CelestialBody(
+        324858.592,
         4.867e24,
         np.array([0.72 * UniversalConstants.AU, 0.0, 0.0]),
         np.array([0.0, circular_velocities(0.72 * UniversalConstants.AU), 0.0]),
@@ -30,6 +32,7 @@ class Planets:
     )
 
     earth = CelestialBody(
+        398600.435507,
         5.972e24,
         np.array([UniversalConstants.AU, 0.0, 0.0]),
         np.array([0.0, true_circular_velocities(UniversalConstants.AU, 5.972e24, 1.32712440018e20 / UniversalConstants.G), 0.0]),
@@ -38,6 +41,7 @@ class Planets:
     )
 
     mars = CelestialBody(
+        42828.375816, # from here on out it is the mass of the systems, which will affect results later
         6.417e23,
         np.array([1.52 * UniversalConstants.AU, 0.0, 0.0]),
         np.array([0.0, circular_velocities(1.52 * UniversalConstants.AU), 0.0]),
@@ -46,6 +50,7 @@ class Planets:
     )
 
     jupiter = CelestialBody(
+        126712764.1,
         1.898e27,
         np.array([5.20 * UniversalConstants.AU, 0.0, 0.0]),
         np.array([0.0, circular_velocities(5.20 * UniversalConstants.AU), 0.0]),
@@ -54,6 +59,7 @@ class Planets:
     )
 
     saturn = CelestialBody(
+        37940584.8418,
         5.683e26,
         np.array([9.58 * UniversalConstants.AU, 0.0, 0.0]),
         np.array([0.0, circular_velocities(9.58 * UniversalConstants.AU), 0.0]),
@@ -62,6 +68,7 @@ class Planets:
     )
 
     uranus = CelestialBody(
+        5794556.4,
         8.681e25,
         np.array([19.2 * UniversalConstants.AU, 0.0, 0.0]),
         np.array([0.0, circular_velocities(19.2 * UniversalConstants.AU), 0.0]),
@@ -70,6 +77,7 @@ class Planets:
     )
 
     neptune = CelestialBody(
+        6836527.10058,
         1.024e26,
         np.array([30.05 * UniversalConstants.AU, 0.0, 0.0]),
         np.array([0.0, circular_velocities(30.05 * UniversalConstants.AU), 0.0]),

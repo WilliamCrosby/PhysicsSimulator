@@ -6,9 +6,9 @@ import orbitalsim.simulation as sim
 class ForwardEuler:
 
     @staticmethod
-    def step(positions, velocities, masses, dt):
+    def step(positions, velocities, GMs, dt):
 
-        accelerations = calculate_accelerations(positions, masses)
+        accelerations = calculate_accelerations(positions, GMs)
 
         positions += dt * velocities
 

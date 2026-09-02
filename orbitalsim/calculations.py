@@ -3,40 +3,53 @@ import numpy as np
 from orbitalsim.celestial_body import CelestialBody
 from orbitalsim.universal_constants import UniversalConstants
 
-
-def mechanical_energy_calculator(bodies: list[CelestialBody], positions, velocities):
-    total_kinetic_energy = 0.0
+''' this one may be better for large simulations with a large number of bodies, when we do that we'll test it
+def mechanical_energy_calculator(masses, positions, velocities):
+    total_kinetic_energy = 0.5 * np.sum(masses * np.sum(velocities * velocities, axis = 1))
     total_gravitational_potential_energy = 0.0
 
-    for i in range(len(bodies)):
-        total_kinetic_energy += 0.5 * bodies[i].mass * np.linalg.norm(velocities[i]) ** 2
+    for i in range(len(masses)):
 
-        for j in range(i + 1, len(bodies)):
+        for j in range(i + 1, len(masses)):
             total_gravitational_potential_energy += (
                 -UniversalConstants.G
-                * bodies[j].mass
-                * bodies[i].mass
+                * masses[j]
+                * masses[i]
                 / np.linalg.norm(positions[i] - positions[j])
             )
 
     return total_kinetic_energy + total_gravitational_potential_energy
+'''
 
+def mechanical_energy_calculator(masses, positions, velocities):
+    G = UniversalConstants.G
 
-def momentum_calculator(bodies: list[CelestialBody], positions, velocities):
-    total_linear_momentum = np.zeros(3)
-    total_angular_momentum = np.zeros(3)
+    kinetic_energy = 0.5 * np.sum(
+        masses * np.sum(velocities * velocities, axis=1)
+    )
 
-    for i in range(len(bodies)):
-        momentum = bodies[i].mass * velocities[i]
+    diff = positions[:, None, :] - positions[None, :, :]
+    distances = np.linalg.norm(diff, axis=2)
 
-        total_linear_momentum += momentum
-        total_angular_momentum += np.cross(positions[i], momentum)
+    i, j = np.triu_indices(len(masses), k=1)
+
+    potential_energy = -G * np.sum(
+        masses[i] * masses[j] / distances[i, j]
+    )
+
+    return kinetic_energy + potential_energy
+
+def momentum_calculator(masses, positions, velocities):
+    momenta = masses[:, None] * velocities
+
+    total_linear_momentum = np.sum(momenta, axis=0)
+    total_angular_momentum = np.sum(np.cross(positions, momenta), axis=0)
 
     return total_linear_momentum, total_angular_momentum
 
 
 def update_extrema(
-    bodies,
+    masses,
     positions,
     velocities,
     maximum_energy,
@@ -46,8 +59,8 @@ def update_extrema(
     maximum_angular_momentum,
     minimum_angular_momentum,
 ):
-    energy = mechanical_energy_calculator(bodies, positions, velocities)
-    linear_momentum, angular_momentum = momentum_calculator(bodies, positions, velocities)
+    energy = mechanical_energy_calculator(masses, positions, velocities)
+    linear_momentum, angular_momentum = momentum_calculator(masses, positions, velocities)
     linear_momentum_norm = np.linalg.norm(linear_momentum)
     angular_momentum_norm = np.linalg.norm(angular_momentum)
 
