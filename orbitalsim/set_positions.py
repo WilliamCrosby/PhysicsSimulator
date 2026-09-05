@@ -22,10 +22,10 @@ class PositionsSetter:
         epoch = _to_horizons_epoch(start_time)
 
         for body in bodies:
-            if body.barycenter_id is not None:
-                obj = Horizons(id=body.barycenter_id, location='@0', epochs=epoch)
-            else:
+            if body.horizons_id is not None:
                 obj = Horizons(id=body.horizons_id, location='@0', epochs=epoch)
+            else:
+                obj = Horizons(id=body.barycenter_id, location='@0', epochs=epoch)
 
             vec = obj.vectors()
 

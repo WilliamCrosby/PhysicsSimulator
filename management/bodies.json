@@ -1,0 +1,96 @@
+[
+  {
+    "name": "Sun",
+    "gm": 1.32712440018e20,
+    "gm_unit": "m3/s2",
+    "mass": 1.989e30,
+    "position": [-4.4930949e5, 0.0, 0.0],
+    "velocity": [0.0, -0.0895, 0.0],
+    "horizons_id": "10",
+    "barycenter_id": "0"
+  },
+  {
+    "name": "Mercury",
+    "gm": 22031.868551,
+    "gm_unit": "km3/s2",
+    "mass": 3.301e23,
+    "position_au": [0.39, 0.0, 0.0],
+    "circular_orbit": true,
+    "barycenter_id": "1"
+  },
+  {
+    "name": "Venus",
+    "gm": 324858.592,
+    "gm_unit": "km3/s2",
+    "mass": 4.867e24,
+    "position_au": [0.72, 0.0, 0.0],
+    "circular_orbit": true,
+    "barycenter_id": "2"
+  },
+  {
+    "name": "Earth",
+    "gm": 398600.435436,
+    "gm_unit": "km3/s2",
+    "mass": 5.972e24,
+    "position_au": [1.0, 0.0, 0.0],
+    "circular_orbit": true,
+    "horizons_id": "399",
+    "barycenter_id": "3"
+  },
+  {
+    "name": "Mars",
+    "gm": 42828.375816,
+    "gm_unit": "km3/s2",
+    "mass": 6.417e23,
+    "position_au": [1.52, 0.0, 0.0],
+    "circular_orbit": true,
+    "barycenter_id": "4"
+  },
+  {
+    "name": "Jupiter",
+    "gm": 126712764.1,
+    "gm_unit": "km3/s2",
+    "mass": 1.898e27,
+    "position_au": [5.20, 0.0, 0.0],
+    "circular_orbit": true,
+    "barycenter_id": "5"
+  },
+  {
+    "name": "Saturn",
+    "gm": 37940584.8418,
+    "gm_unit": "km3/s2",
+    "mass": 5.683e26,
+    "position_au": [9.58, 0.0, 0.0],
+    "circular_orbit": true,
+    "barycenter_id": "6"
+  },
+  {
+    "name": "Uranus",
+    "gm": 5794556.4,
+    "gm_unit": "km3/s2",
+    "mass": 8.681e25,
+    "position_au": [19.2, 0.0, 0.0],
+    "circular_orbit": true,
+    "barycenter_id": "7"
+  },
+  {
+    "name": "Neptune",
+    "gm": 6836527.10058,
+    "gm_unit": "km3/s2",
+    "mass": 1.024e26,
+    "position_au": [30.05, 0.0, 0.0],
+    "circular_orbit": true,
+    "barycenter_id": "8"
+  },
+
+  {
+    "name": "Moon",
+    "gm": 4902.800118,
+    "gm_unit": "km3/s2",
+    "mass": 7.34767309e22,
+    "position_au": [1.009, 0.0, 0.0],
+    "circular_orbit": true,
+    "horizons_id": "301",
+    "barycenter_id": "3"
+  }
+]

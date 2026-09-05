@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1871bf2-3936-466f-a6c8-8681c9209e42" name="Changes" comment="Add time cost analysis to two-body system analysis">
+    <list default="true" id="a1871bf2-3936-466f-a6c8-8681c9209e42" name="Changes" comment="Change architecture of the project to use gravitational parameter rather than mass">
+      <change afterPath="$PROJECT_DIR$/management/bodies.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/management/celestial_bodies_loader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/management/system_initializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/PhysicsSimulatorNotebook.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/calculations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/celestial_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/celestial_body.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/forward_euler.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/forward_euler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/runge_kutta_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/runge_kutta_4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/symplectic_euler.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/symplectic_euler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/velocity_verlet.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/velocity_verlet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/integrators/yoshida_4th_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/integrators/yoshida_4th_order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/diagnostic_calculators.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/diagnostic_calculators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orbitalsim/planets.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/planets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orbitalsim/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/simulation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orbitalsim/set_positions.py" beforeDir="false" afterPath="$PROJECT_DIR$/orbitalsim/set_positions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,11 +137,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator\management" />
       <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator\notebooks\results\raw_data" />
       <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator\notebooks\results" />
       <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator" />
       <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator\notebooks" />
-      <recent name="C:\Users\willi\PycharmProjects\PhysicsSimulator\orbitalsim" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -243,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788311302494</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Change architecture of the project to use gravitational parameter rather than mass">
+      <option name="closed" value="true" />
+      <created>1788374739963</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1788374739964</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +264,8 @@
     <MESSAGE value="Implemented minor optimizations" />
     <MESSAGE value="Test all integrators against circular orbits" />
     <MESSAGE value="Add time cost analysis to two-body system analysis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add time cost analysis to two-body system analysis" />
+    <MESSAGE value="Change architecture of the project to use gravitational parameter rather than mass" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change architecture of the project to use gravitational parameter rather than mass" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PhysicsSimulator$diagnostic_calculators.coverage" NAME="diagnostic_calculators Coverage Results" MODIFIED="1784656509104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/orbitalsim" />

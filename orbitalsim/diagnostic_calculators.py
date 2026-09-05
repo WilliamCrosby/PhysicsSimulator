@@ -19,6 +19,12 @@ def _to_time(time):
         return Time(time, format='jd', scale='tdb')
     return Time(time)
 
+def _horizons_target_id(body):
+    target_id = body.horizons_id if body.horizons_id is not None else body.barycenter_id
+    if target_id is None:
+        raise ValueError(f"{body.name} must define either horizons_id or barycenter_id")
+    return target_id
+
 def two_simulation_position_comparison(bodies, steps, integrator1, integrator2, dt1, dt2):
     sim1 = NBodySimulation(integrator1, copy.deepcopy(bodies))
     sim2 = NBodySimulation(integrator2, copy.deepcopy(bodies))
@@ -37,30 +43,29 @@ def horizon_data_position_comparison(bodies, start_time, steps, integrator, dt):
         sp.furnsh(str(PCK_KERNEL_PATH))
         sp.furnsh(str(GM_KERNEL_PATH))
 
-
     bodies_copy = copy.deepcopy(bodies)
-
-    for body in bodies_copy:
-        if body.barycenter_id is not None:
-            _, gm = sp.bodvcd(int(body.barycenter_id), "GM", 1)
-            gm_si = gm[0] * 1e9
-            body.GM = gm_si
-            body.mass = gm_si / UniversalConstants.G
-
-    sim = NBodySimulation(integrator, copy.deepcopy(bodies_copy))
-
     start_time_converted = _to_time(start_time)
     deltaTime = TimeDelta(steps * dt, format='sec')
     end_time = start_time_converted + deltaTime
 
-    _, _, positions, *_ = sim.simulator(steps,dt)
+    for body in bodies_copy:
+        spice_id = _horizons_target_id(body)
+        _, gm = sp.bodvcd(int(spice_id), "GM", 1)
+        gm_si = gm[0] * 1e9
+        body.GM = gm_si
+        body.mass = gm_si / UniversalConstants.G
+
+        vec = Horizons(id=spice_id, location='@0', epochs=start_time_converted.tdb.jd).vectors()
+        body.position = np.array([vec['x'][0], vec['y'][0], vec['z'][0]]) * UniversalConstants.AU_TO_M
+        body.velocity = np.array([vec['vx'][0], vec['vy'][0], vec['vz'][0]]) * UniversalConstants.AU_TO_M / 86400
+
+    sim = NBodySimulation(integrator, bodies_copy)
+    _, _, positions, *_ = sim.simulator(steps, dt)
 
     objs = []
     for body in bodies_copy:
-        if body.barycenter_id is not None:
-            objs.append(Horizons(id=body.barycenter_id, location='@0', epochs=end_time.tdb.jd))
-        else:
-            objs.append(Horizons(id=body.horizons_id, location='@0', epochs=end_time.tdb.jd))
+        target_id = _horizons_target_id(body)
+        objs.append(Horizons(id=target_id, location='@0', epochs=end_time.tdb.jd))
 
     positional_differences = np.zeros(len(objs))
     for i in range(len(objs)):
