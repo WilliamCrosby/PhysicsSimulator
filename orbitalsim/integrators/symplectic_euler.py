@@ -5,7 +5,7 @@ class SymplecticEulerIntegrator:
 
     @staticmethod
     def step(positions, velocities, GMs, dt):
-        accelerations = calculate_accelerations(positions, GMs)
+        accelerations = calculate_accelerations(positions, GMs, velocities)
         velocities += accelerations * dt
         positions += velocities * dt
         return positions, velocities

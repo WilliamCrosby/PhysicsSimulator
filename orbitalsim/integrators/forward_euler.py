@@ -8,7 +8,7 @@ class ForwardEuler:
     @staticmethod
     def step(positions, velocities, GMs, dt):
 
-        accelerations = calculate_accelerations(positions, GMs)
+        accelerations = calculate_accelerations(positions, GMs, velocities)
 
         positions += dt * velocities
 
